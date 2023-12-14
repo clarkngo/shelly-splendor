@@ -1,5 +1,9 @@
 package com.boardgame.splendor.model;
 
+import com.boardgame.splendor.util.CardArt;
+import com.boardgame.splendor.util.TextColor;
+import org.w3c.dom.Text;
+
 public enum DevelopmentCard {
     // Level 1
     CARD1(1, GemColor.BLACK, 0, 1, 1, 1, 1, 0),
@@ -91,17 +95,16 @@ public enum DevelopmentCard {
 
     @Override
     public String toString() {
-        return String.format("Level: %d, Gem Color: %s, Points: %d, Cost (W/Blk/G/R/Blue): %d/%d/%d/%d/%d",
-                this.getLevel(), this.getGemColor(), this.getPoints(),
-                this.getCostWhite(), this.getCostBlack(), this.getCostGreen(), this.getCostRed(), this.getCostBlue());
+        return String.format("Level: %d, Gem Color: %s, Points: %d, Cost (W/Blk/G/R/Blue): %s/%s/%s/%s/%s\n%s",
+                this.getLevel(),
+                this.getGemColor(),
+                this.getPoints(),
+                TextColor.WHITE + this.getCostWhite() + TextColor.RESET,
+                TextColor.BLACK + this.getCostBlack() + TextColor.RESET,
+                TextColor.GREEN + this.getCostGreen() + TextColor.RESET,
+                TextColor.RED + this.getCostRed() + TextColor.RESET,
+                TextColor.BLUE + this.getCostBlue() + TextColor.RESET,
+                CardArt.generateCardArt(this));
     }
 }
 
-// GemColor enum
-enum GemColor {
-    BLACK,
-    BLUE,
-    WHITE,
-    GREEN,
-    RED
-}
