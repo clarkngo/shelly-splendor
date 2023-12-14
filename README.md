@@ -5,3 +5,8 @@ is built with Spring Shell 🐚
 ```
 ./mvnw spring-boot:run
 ```
+
+# Build Native App
+```
+./mvnw -Pnative native:compile
+```
